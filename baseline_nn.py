@@ -1,5 +1,6 @@
 import torch
 import numpy as numpy
+from tqdm import tqdm
 
 
 class BLNN(torch.nn.Module):
@@ -61,13 +62,13 @@ class BLNN(torch.nn.Module):
         # number of batches
         no_batches = int(x.shape[0]/args.batch_size)
 
-        L2_loss = torch.nn.MSE()
+        L2_loss = torch.nn.MSELoss()
 
         stats = {'train_loss': [], 'test_loss': []}
-        for epoch in tqdm(range(args.epochs)):
+        for epoch in tqdm(range(args.epochs), desc='Epochs', leave=True):
             train_loss_epoch = 0.0
             test_loss_epoch = 0.0
-            for batch in range(no_batches):
+            for batch in tqdm(range(no_batches), desc='Batches', leave=True):
 
                 optim.zero_grad()
                 ixs = torch.randperm(x.shape[0])[:args.batch_size]

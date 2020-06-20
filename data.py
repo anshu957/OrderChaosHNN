@@ -45,7 +45,7 @@ class DynamicalSystem():
         self.order = symplectic_order
         self.sys_fn = sympify(sys_hamiltonian, evaluate=False)
         self.state_symbols = state_symbols
-        self.energyPoints = 100
+        self.energyPoints = 50
 
         self.sys_dim = len(state_symbols)
         self.sys_eqns = []
