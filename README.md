@@ -8,6 +8,6 @@ This repository contains code that can reproduce the Henon-Heiles system results
 
 
 
-> Also, the code in this repository is inspired and forked from https://github.com/greydanus/hamiltonian-nn
+> NOTE: The code in this repository is inspired and forked from https://github.com/greydanus/hamiltonian-nn
 
 
