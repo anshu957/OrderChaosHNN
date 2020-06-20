@@ -1,6 +1,6 @@
 # OrderChaosHNN
-Hamiltonian neural network ![](NNSchematic2.png) implementation for Henon Heiles dynamical system learning mix of order and chaos
-<img src="https://github.com/anshu957/OrderChaosHNN/NNSchematic.png" width="48">
+Hamiltonian neural network implementation for Henon Heiles dynamical system learning mix of order and chaos
+<img src="https://github.com/anshu957/OrderChaosHNN/blob/master/NNSchematic2.png" width="48">
 
 This repository contains code that can reproduce the Henon-Heiles system results for [this](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.101.062207) paper.
 
