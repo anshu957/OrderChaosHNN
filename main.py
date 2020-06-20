@@ -22,7 +22,7 @@ def get_args():
                         type=int, help='hidden layers dimension')
     parser.add_argument('--learn_rate', default=1e-03,
                         type=float, help='learning rate')
-    parser.add_argument('--batch_size', default=128,
+    parser.add_argument('--batch_size', default=512,
                         type=int, help='batch size'),
     parser.add_argument('--input_noise', default=0.0,
                         type=float, help='noise strength added to the inputs')
@@ -32,7 +32,7 @@ def get_args():
                         type=str, help='name of the integration scheme [RK4, RK45, Symplectic]')
     parser.add_argument('--activation_fn', default='Tanh', type=str,
                         help='which activation function to use [Tanh, ReLU]')
-    parser.add_argument('--name', default='Henon-Heiles',
+    parser.add_argument('--name', default='Henon_Heiles',
                         type=str, help='Name of the system')
     parser.add_argument('--model', default='baseline',
                         type=str, help='baseline or hamiltonian')
@@ -51,14 +51,17 @@ if __name__ == "__main__":
 
     args = get_args()
 
+    args.save_dir = THIS_DIR + '/' + 'TrainedNetworks'
+    args.name = args.name + '_DSR_' + args.dsr
+
     state_symbols = ['q1', 'q2', 'p1', 'p2']
     tspan = [0, 1000]
-    tpoints = int(10*(tspan[1]))
+    tpoints = int((1/args.dsr)*(tspan[1]))
 
     sys = DynamicalSystem(sys_hamiltonian=args.hamiltonian, tspan=tspan,
                           timesteps=tpoints, integrator=args.integrator_scheme, state_symbols=state_symbols, symplectic_order=4)
 
-    data = sys.get_dataset(args.name, args.save_dir)
+    data = sys.get_dataset(args.name, THIS_DIR)
 
     print('Hidden dimensions (excluding first and last layer) : {}'.format(
         args.hidden_dim))
