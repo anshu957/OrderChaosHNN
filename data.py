@@ -1,7 +1,7 @@
 '''
 File: data.py
 File Created: Monday, 22 July 2019 13:36:30
-Author: well-well-well
+Author: anshu957 
 ------------------------
 Description: Calculates the trajectories of any dynamical
 system for various initial conditions and combine all those
@@ -9,8 +9,6 @@ to make a data set which is split into (train, test) data
 sets with some predefined ratio.
 --------------------------
 '''
-
-# Inspired by Hamiltonian Neural Networks | 2019 ( Sam Greydanus, Misko Dzamba, Jason Yosinski)
 
 import numpy as np
 import math
